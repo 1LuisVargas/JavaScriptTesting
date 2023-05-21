@@ -31,11 +31,13 @@ const products = [
     new Product(16, 0, "Toners CF258A Venspeed", "CF258A", 124),
 ]
 
+//Asking for user input to look for specific products.
 search = prompt("What product are you interested in?");
+//Then looking for them and adding them to new string
 const products_find = products.filter((item) => item.description.includes(search));
 
+//Create the output message based on the current store stock
 let resultMessage = "We found the following products:\n";
-
 if (products_find.length > 0) {
     products_find.forEach((product) => {
         resultMessage += `ID: ${product.id}, Description: ${product.description}, Price: ${product.price}\n`;
@@ -44,4 +46,5 @@ if (products_find.length > 0) {
     resultMessage = "No products found.";
 }
 
+//Output the message on screen
 alert(resultMessage);
